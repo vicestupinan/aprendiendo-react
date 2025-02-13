@@ -1,15 +1,11 @@
 import './App.css'
+import Mensaje from './Mensaje'
 
 const mensaje = 'Hola Mundo'
 
 // -----------------------------------------------
 
 // Creacion de nuevos componentes reutilizables
-
-// Creacion de nuevo componente para el mensaje
-const Mensaje = () => {
-  return <h4>{mensaje}</h4>
-}
 
 // Creacion de nuevo componente para la descripcion
 const Descripcion = () => {
