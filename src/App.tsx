@@ -51,7 +51,7 @@ const Total = ({ exercises }: TotalProps) => {
       <p>
         Number of exercises {total}
       </p>
-    </>
+    </> 
   )
 }
 
@@ -68,6 +68,8 @@ const Contador = () => {
     setCount(0)
   }
 
+  const  isEven = count % 2 === 0
+
   return (
     <>
       <p>{count}</p>
@@ -77,6 +79,7 @@ const Contador = () => {
           return prevCount + 1
         })
       }}>Incrementar</button> */}
+      <p>{isEven ? 'Es par' : 'Es impar'}</p>
       <button onClick={handleClick}>Incrementar</button>
       <button onClick={handleClickReset}>Reiniciar</button>
     </>
