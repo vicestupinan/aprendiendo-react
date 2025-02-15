@@ -51,7 +51,15 @@ const Total = ({ exercises }: TotalProps) => {
       <p>
         Number of exercises {total}
       </p>
-    </> 
+    </>
+  )
+}
+
+const DisplayContador = ({ count }: { count: number }) => {
+  return (
+    <>
+      <p>{count}</p>
+    </>
   )
 }
 
@@ -60,27 +68,36 @@ const Contador = () => {
   // useState devuelve la variable y una funcion para actualizarla
   const [count, setCount] = useState(0)
 
-  const handleClick = () => {
-    setCount(count + 1)
+  const handleClick = (isSum: boolean) => {
+    if (isSum) {
+      setCount(count + 1)
+    } else {
+      setCount(count - 1)
+    }
   }
 
   const handleClickReset = () => {
     setCount(0)
   }
 
-  const  isEven = count % 2 === 0
+  // Utilizacion del operador ternario para evaluar condiciones
+  const isEven = count % 2 === 0
+  const isEvenMessage = isEven ? 'Es par' : 'Es impar'
 
   return (
     <>
-      <p>{count}</p>
+      {/* Enviar variables de estado a componentes hijos */}
+      <DisplayContador count={count} />
+
       {/* <button onClick={() => {
         setCount(count + 1)
         setCount(prevCount => {
           return prevCount + 1
         })
       }}>Incrementar</button> */}
-      <p>{isEven ? 'Es par' : 'Es impar'}</p>
-      <button onClick={handleClick}>Incrementar</button>
+      <p>{isEvenMessage}</p>
+      <button onClick={() => handleClick(true)}>Incrementar</button>
+      <button onClick={() => handleClick(false)}>Decrementar</button>
       <button onClick={handleClickReset}>Reiniciar</button>
     </>
   )
