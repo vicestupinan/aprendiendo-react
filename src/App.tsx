@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Mensaje from './Mensaje'
 
@@ -50,6 +51,34 @@ const Total = ({ exercises }: TotalProps) => {
       <p>
         Number of exercises {total}
       </p>
+    </>
+  )
+}
+
+const Contador = () => {
+  // Creacion de variables para asignacion de estados
+  // useState devuelve la variable y una funcion para actualizarla
+  const [count, setCount] = useState(0)
+
+  const handleClick = () => {
+    setCount(count + 1)
+  }
+
+  const handleClickReset = () => {
+    setCount(0)
+  }
+
+  return (
+    <>
+      <p>{count}</p>
+      {/* <button onClick={() => {
+        setCount(count + 1)
+        setCount(prevCount => {
+          return prevCount + 1
+        })
+      }}>Incrementar</button> */}
+      <button onClick={handleClick}>Incrementar</button>
+      <button onClick={handleClickReset}>Reiniciar</button>
     </>
   )
 }
@@ -108,6 +137,9 @@ export default function App() {
         <Content part={part2} exercises={exercises2}></Content>
         <Content part={part3} exercises={exercises3}></Content>
         <Total exercises={[exercises1, exercises2, exercises3]}></Total>
+
+        {/* Ejercicio de manejo de estados */}
+        <Contador />
       </div>
     </>
   )
