@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
 import Mensaje from './Mensaje'
+import Complejos from './Complejos'
 
 // -----------------------------------------------
 
@@ -105,9 +105,9 @@ const Contador = () => {
 
 // -----------------------------------------------
 
-export default function App() {
+export default function PrimeraClase() {
 
-  const saludo = 'Hola Mundo'
+  const saludo = 'Clase #1'
   const mensaje = 'Este es un componente reutilizable desde nuevo archivo usando props'
 
   // Variables para el ejercicio
@@ -123,7 +123,7 @@ export default function App() {
     <>
       <div>
         {/* Se utiliza las llaves para evaluar expresiones */}
-        {saludo}
+        <h1>{saludo}</h1>
 
         {/* Se pueden crear componentes reutilizables */}
         <Mensaje color='red' />
@@ -160,6 +160,9 @@ export default function App() {
 
         {/* Ejercicio de manejo de estados */}
         <Contador />
+
+        {/* Ejercicio de manejo de estados complejos*/}
+        <Complejos />
       </div>
     </>
   )
